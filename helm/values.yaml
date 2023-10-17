@@ -1,0 +1,14 @@
+---
+container:
+  image: "nginxdemos/hello"
+  tag: "latest"
+  port: 80
+  replicas: 1
+
+ingress:
+  lbGroup: sample-app
+  securityGroup: sg-default
+  host: minikube.local
+  path: /
+  serviceName: sample-app
+  servicePort: 80
