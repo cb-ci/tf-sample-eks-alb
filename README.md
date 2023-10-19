@@ -54,3 +54,44 @@ cache-control: no-cache
 
 Open in Browser 
 > open http://sample.<YOUR_DOMAIN>
+
+
+# Annotations
+
+public facing
+```
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.lbGroup }}
+    alb.ingress.kubernetes.io/load-balancer-name: {{ .Values.ingress.lbGroup }}
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80},{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    
+    #see in aws console -> securitiy groups -> Security group name > clsutername-alb (acaternberg-tf-02-alb)  an grep the securitygroup-id 
+    alb.ingress.kubernetes.io/security-groups: {{ .Values.ingress.securityGroup }}
+    
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.host }}
+    external-dns.alpha.kubernetes.io/alias: "true"
+```
+
+Internal ALP (private subnets)
+```
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.lbGroup }}
+    alb.ingress.kubernetes.io/load-balancer-name: {{ .Values.ingress.lbGroup }}
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80},{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    
+    #Just enable alb.ingress.kubernetes.io/subnets: if private subnets and a internal/private ALB is  used
+    #Check your  VPC to get the two private subnets 
+    alb.ingress.kubernetes.io/subnets: subnet-1234,subnet-5678
+    
+    #see in aws console -> securitiy groups -> Security group name > clsutername-alb (acaternberg-tf-02-alb)  an grep the securitygroup-id 
+    alb.ingress.kubernetes.io/security-groups: {{ .Values.ingress.securityGroup }}
+    
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.host }}
+    external-dns.alpha.kubernetes.io/alias: "true"
+```
