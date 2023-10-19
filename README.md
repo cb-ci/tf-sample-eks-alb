@@ -95,3 +95,23 @@ Internal ALB (private subnets)
     external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.host }}
     external-dns.alpha.kubernetes.io/alias: "true"
 ```
+
+
+# Start browser UI quickly in a private VPC (without VPC paring of VPN) 
+
+```
+
+kubectl run desktop-ui-pod  --image dorowu/ubuntu-desktop-lxde-vnc
+#kubectl run desktop-ui-pod --rm -i --tty --image dorowu/ubuntu-desktop-lxde-vnc    -- bash
+
+#Portforward  to localhost port 7777
+kubectl port-forward pod/desktop-ui-pod  7777:80
+
+```
+
+* Open a browser on your local machine
+> open http://localhost:7777/
+
+* Open firefox in Ubuntu Dekstop container (menu left to the bottom -> Internet 
+* Type your Domain
+> https://sample.<your_domain>
