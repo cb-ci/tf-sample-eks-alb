@@ -6,7 +6,9 @@ See
 
  
 > helm upgrade -i  sample-app  ./   -f config/values-development.yaml   --debug --dry-run 
+
 > helm upgrade -i  sample-app  ./   -f config/values-development.yaml
+
 > helm list
 
 
@@ -24,6 +26,7 @@ sample-app-ingress-rules   alb     sample.acaternberg.pscbdemos.com   XXX.us-eas
 Check DNS
 
 > dig sample.acaternberg.pscbdemos.com 
+
 > dig  XXX.us-east-1.elb.amazonaws.com
 
 * Wait ~ 5 min until LB is deployed, before we wil get 404 and other errors 
