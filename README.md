@@ -97,7 +97,7 @@ Internal ALB (private subnets)
 ```
 
 
-# Start browser UI quickly in a private VPC (without VPC paring of VPN) 
+# Start browser UI quickly in a private VPC (without VPC parring or VPN) 
 
 ```
 
