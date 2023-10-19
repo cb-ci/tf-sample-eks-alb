@@ -75,7 +75,7 @@ public facing
     external-dns.alpha.kubernetes.io/alias: "true"
 ```
 
-Internal ALP (private subnets)
+Internal ALB (private subnets)
 ```
   annotations:
     alb.ingress.kubernetes.io/scheme: internal
