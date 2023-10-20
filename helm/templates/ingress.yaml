@@ -4,12 +4,17 @@ kind: Ingress
 metadata:
   name: {{ .Chart.Name }}-ingress-rules
   annotations:
+    #alb.ingress.kubernetes.io/scheme: internal
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.lbGroup }}
     alb.ingress.kubernetes.io/load-balancer-name: {{ .Values.ingress.lbGroup }}
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80},{"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: "443"
+
+    #Just enable alb.ingress.kubernetes.io/subnets: if private subnets and a internal/private ALB is  used
+    #Check your  VPC to get the two private subnets
+    #alb.ingress.kubernetes.io/subnets: subnet-0c5ba202da7524667,subnet-045574e5709ce52eb
     alb.ingress.kubernetes.io/security-groups: {{ .Values.ingress.securityGroup }}
     external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.host }}
     external-dns.alpha.kubernetes.io/alias: "true"
