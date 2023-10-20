@@ -26,14 +26,15 @@ kctl get ing
 NAME                       CLASS   HOSTS                              ADDRESS                                                 PORTS   AGE
 sample-app-ingress-rules   alb     sample.<YOUR_DOMAIN>   XXX.us-east-1.elb.amazonaws.com   80      7m13s
 ```
+* !!!! Wait ~ 5 min until LB is deployed and DNS is propagated, check Route53 zone!!!!
 
 * Check DNS
 
 > dig sample.<YOUR_DOMAIN>
-
+> 
 > dig  XXX.us-east-1.elb.amazonaws.com
 
-* Wait ~ 5 min until LB is deployed and DNS is available 
+
 * Test access with curl 
  * Optional run curl from inside the VPC
 >  kubectl run my-shell --rm -i --tty --image caternberg/ci-toolbox   -- bash
