@@ -27,13 +27,17 @@ NAME                       CLASS   HOSTS                              ADDRESS   
 sample-app-ingress-rules   alb     sample.<YOUR_DOMAIN>   XXX.us-east-1.elb.amazonaws.com   80      7m13s
 ```
 
-Check DNS
+* Check DNS
 
 > dig sample.<YOUR_DOMAIN>
 
 > dig  XXX.us-east-1.elb.amazonaws.com
 
-* Wait ~ 5 min until LB is deployed, before we wil get 404 and other errors 
+* Wait ~ 5 min until LB is deployed and DNS is available 
+* Test access with curl 
+ * Optional run curl from inside the VPC
+>  kubectl run my-shell --rm -i --tty --image caternberg/ci-toolbox   -- bash
+
 ```
 curl -ILk  http://sample.<YOUR_DOMAIN>
 HTTP/1.1 301 Moved Permanently
@@ -52,7 +56,7 @@ expires: Thu, 19 Oct 2023 05:18:43 GMT
 cache-control: no-cache
 ```
 
-Open in Browser 
+* Open in Browser 
 > open http://sample.<YOUR_DOMAIN>
 
 
