@@ -1,5 +1,5 @@
 See 
-* Article: https://blog.devops.dev/create-an-application-loadbalancer-using-terraform-for-aws-ec2-64f10783ee49
+* Article: https://sharmilas.medium.com/a-step-by-step-guide-to-creating-load-balancer-and-ec2-with-auto-scaling-group-using-terraform-752afd44df8e
 * https://medium.com/tensult/guide-to-setup-kubernetes-in-aws-eks-using-terraform-and-deploy-sample-applications-ee8c45e425ca
 * https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/main/docs/guide/ingress/annotations.md#target-type
 * https://gitlab.com/nicosingh/medium-deploy-eks-cluster-using-terraform-sample-app/-/tree/master/helm?ref_type=heads
