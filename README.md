@@ -15,6 +15,9 @@ See
 * List 
 > helm list
 
+* Render resource
+> helm  template  ./   -f config/values-development.yaml
+
 
 * Then check Route53 -> Hosted Zones for new DNS entry 
 * Check EC2 -> Loadbalancers -> <YOUR_LB_NAME>
