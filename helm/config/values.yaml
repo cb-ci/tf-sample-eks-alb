@@ -1,9 +1,9 @@
 ---
 container:
-  replicas: 4
+  replicas: 2
 
 ingress:
-  lbGroup: YOUR_ALB_NAME
+  lbGroup: sample-app-alb
   host: YOUR_DOMAINNAME
-  #see in aws console -> securitiy groups -> Security group name > clsutername-alb (acaternberg-tf-02-alb)  an grep the securitygroup-id
+  #see in aws console -> securitiy groups -> Security group name > <search for your clsutername-alb sg> (acaternberg-tf-02-alb)  and grep the securitygroup-id
   securityGroup: sg-123456789 # PUT YOURS
